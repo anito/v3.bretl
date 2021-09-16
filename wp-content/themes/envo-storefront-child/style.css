@@ -1,0 +1,20 @@
+/*
+Theme Name: Envo Storefront Child
+Description: This is a child theme for Envo Storefront Theme
+Author: Axel Nitzschner
+Template: envo-storefront
+Text Domain:  envo-storefront-child
+Version: 1.0
+*/
+
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+  text-align: left;
+}
+.product-gallery-disclaimer {
+  display: block;
+  font-size: 0.6em;
+  line-height: 1.3em;
+  margin-bottom: 10px;
+  position: absolute;
+  top: -21px;
+}
