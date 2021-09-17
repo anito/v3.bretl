@@ -10,8 +10,9 @@ Text Domain: astra-child
 Template: astra
 */
 
-.woocommerce div.product .woocommerce-tabs ul.tabs {
-  text-align: left;
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+  justify-content: space-between;
 }
 .product-gallery-disclaimer {
   display: block;

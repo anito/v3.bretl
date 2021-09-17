@@ -7,9 +7,8 @@ Text Domain:  envo-storefront-child
 Version: 1.0
 */
 
-.woocommerce ul.products li.product,
-.woocommerce-page ul.products li.product {
-  justify-content: space-between;
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+  text-align: left;
 }
 .product-gallery-disclaimer {
   display: block;
