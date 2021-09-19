@@ -46,5 +46,6 @@ jQuery(document).ready(function ($) {
 
 function ajax_callback(status, el) {
   let col = el.getElementsByTagName("a");
-  col.item(0) && col.item(0).classList.add(`ajax-${status}`);
+  col.item(0) && col.item(0).classList.add("ajax-message", status);
+  setTimeout((_) => col.item(0).classList.remove("ajax-message", status), 2500);
 }

@@ -122,6 +122,11 @@ function add_scripts()
     wp_enqueue_script('main');
 
     /*
+     *  Tailwind css
+     */
+    // wp_enqueue_style('tailwind', get_stylesheet_directory_uri() . '/css/theme.css', wp_get_theme()->get('Version'));
+
+    /*
      *  Require Fancybox JS for Action Gallery Page only
      */
     if (is_page('action-galerie')) { // using the slug here

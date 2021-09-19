@@ -1,6 +1,7 @@
 # osx noise
 .DS_Store
 profile
+node_modules/*
 
 # xcode noise
 build/*
@@ -24,21 +25,15 @@ CVS
 !.gitignore
 !README.md
 
-# my child themes
+# child themes
 !/wp-content/themes
 /wp-content/themes/*
 !/wp-content/themes/*-child
 /wp-content/themes/*-child/ignored-assets
+/wp-content/themes/*-child/node_modules
 /wp-content/themes/*-child/scratchbook.*
 
-# wp-touch child
-!/wp-content/wptouch-data
-/wp-content/wptouch-data/*
-!/wp-content/wptouch-data/themes
-/wp-content/wptouch-data/themes/*
-!/wp-content/wptouch-data/themes/*-child
-
-# my plugins
+# plugins
 !/wp-content/plugins
 /wp-content/plugins/*
 !/wp-content/plugins/woocommerce-new-product
