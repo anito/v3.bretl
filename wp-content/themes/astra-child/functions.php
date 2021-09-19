@@ -281,7 +281,6 @@ function wbp_update_post()
         'post_status' => $post_status,
     ));
 
-    write_log($ret);
     wp_die();
 }
 add_action('wp_ajax_wbp_update_post', 'wbp_update_post');
@@ -291,7 +290,6 @@ function wbp_get_post()
     $post_id = $_POST['post_id'];
     $post = get_post($post_id);
 
-    write_log($post);
     wp_die();
 }
 add_action('wp_ajax_wbp_get_post', 'wbp_get_post');
