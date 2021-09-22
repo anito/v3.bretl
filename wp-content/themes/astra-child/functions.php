@@ -6,7 +6,7 @@ require_once __DIR__ . '/includes/sender_email.php';
  * Define Constants
  */
 define('CHILD_THEME_ASTRA_CHILD_VERSION', '1.0.0');
-define('CONSENT_PRO_ID', '71a30230-f01c-48ee-ad6b-4cd05b3f2308-test');
+// define('CONSENT_PRO_ID', '71a30230-f01c-48ee-ad6b-4cd05b3f2308-test');
 
 /**
  * Astra Child Theme functions and definitions
@@ -245,12 +245,11 @@ function enqueue_cp()
     wp_enqueue_script('consent-pro', 'https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js');
 
 }
-
 add_action('wp_enqueue_scripts', 'enqueue_cp', 1);
 
 function add_cp_data_attribute($tag, $handle, $src)
 {
-    if ('consent-pro' === $handle) {
+    if (defined(CONSENT_PRO_ID) && 'consent-pro' === $handle) {
         $tag = str_replace('src=', 'data-domain-script=' . CONSENT_PRO_ID . ' src=', $tag);
     }
     return $tag;
