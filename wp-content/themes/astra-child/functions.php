@@ -5,7 +5,7 @@ require_once __DIR__ . '/includes/sender_email.php';
 /**
  * Define Constants
  */
-define('CHILD_THEME_ASTRA_CHILD_VERSION', '1.0.0');
+define('CHILD_THEME_ASTRA_CHILD_VERSION', '1.0.1');
 // define('CONSENT_PRO_ID', '71a30230-f01c-48ee-ad6b-4cd05b3f2308-test');
 
 /**
