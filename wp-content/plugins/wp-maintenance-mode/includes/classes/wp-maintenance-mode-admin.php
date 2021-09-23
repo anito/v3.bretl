@@ -5,13 +5,13 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
     class WP_Maintenance_Mode_Admin
     {
 
-        protected static $instance = null;
-        protected $plugin_slug;
-        protected $plugin_settings;
-        protected $plugin_default_settings;
-        protected $plugin_basename;
-        protected $plugin_screen_hook_suffix = null;
-        private $dismissed_notices_key = 'wpmm_dismissed_notices';
+        protected static $_instance = null;
+        protected $_plugin_slug;
+        protected $_plugin_settings;
+        protected $_plugin_default_settings;
+        protected $_plugin_basename;
+        protected $_plugin_screen_hook_suffix = null;
+        private $__dismissed_notices_key = 'wpmm_dismissed_notices';
 
         private function __construct()
         {
@@ -51,11 +51,11 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
 
         public static function get_instance()
         {
-            if (null == self::$instance) {
-                self::$instance = new self;
+            if (null == self::$_instance) {
+                self::$_instance = new self;
             }
 
-            return self::$instance;
+            return self::$_instance;
         }
 
         /**
@@ -265,14 +265,14 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
                 $tab = $_POST['tab'];
                 switch ($tab) {
                     case 'general':
-                        $_POST['options']['general']['status'] = (int) $_POST['options']['general']['status'];
+                        $_POST['options']['general']['status'] = (int)$_POST['options']['general']['status'];
                         if (!empty($_POST['options']['general']['status']) && $_POST['options']['general']['status'] == 1) {
                             $_POST['options']['general']['status_date'] = date('Y-m-d H:i:s');
                         }
-                        $_POST['options']['general']['bypass_bots'] = (int) $_POST['options']['general']['bypass_bots'];
+                        $_POST['options']['general']['bypass_bots'] = (int)$_POST['options']['general']['bypass_bots'];
                         $_POST['options']['general']['backend_role'] = !empty($_POST['options']['general']['backend_role']) ? $_POST['options']['general']['backend_role'] : array();
                         $_POST['options']['general']['frontend_role'] = !empty($_POST['options']['general']['frontend_role']) ? $_POST['options']['general']['frontend_role'] : array();
-                        $_POST['options']['general']['meta_robots'] = (int) $_POST['options']['general']['meta_robots'];
+                        $_POST['options']['general']['meta_robots'] = (int)$_POST['options']['general']['meta_robots'];
                         $_POST['options']['general']['redirection'] = esc_url($_POST['options']['general']['redirection']);
                         if (!empty($_POST['options']['general']['exclude'])) {
                             $exclude_array = explode("\n", $_POST['options']['general']['exclude']);
@@ -281,8 +281,8 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
                         } else {
                             $_POST['options']['general']['exclude'] = array();
                         }
-                        $_POST['options']['general']['notice'] = (int) $_POST['options']['general']['notice'];
-                        $_POST['options']['general']['admin_link'] = (int) $_POST['options']['general']['admin_link'];
+                        $_POST['options']['general']['notice'] = (int)$_POST['options']['general']['notice'];
+                        $_POST['options']['general']['admin_link'] = (int)$_POST['options']['general']['admin_link'];
 
                         // delete cache when is already activated, when is activated and when is deactivated
                         if (
@@ -350,7 +350,7 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
                         $custom_css = array();
 
                         // COUNTDOWN & CUSTOM CSS
-                        $_POST['options']['modules']['countdown_status'] = (int) $_POST['options']['modules']['countdown_status'];
+                        $_POST['options']['modules']['countdown_status'] = (int)$_POST['options']['modules']['countdown_status'];
                         $_POST['options']['modules']['countdown_start'] = sanitize_text_field($_POST['options']['modules']['countdown_start']);
                         $_POST['options']['modules']['countdown_details'] = array_map('trim', $_POST['options']['modules']['countdown_details']);
                         $_POST['options']['modules']['countdown_details']['days'] = isset($_POST['options']['modules']['countdown_details']['days']) && is_numeric($_POST['options']['modules']['countdown_details']['days']) ? $_POST['options']['modules']['countdown_details']['days'] : 0;
@@ -362,7 +362,7 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
                         }
 
                         // SUBSCRIBE & CUSTOM CSS
-                        $_POST['options']['modules']['subscribe_status'] = (int) $_POST['options']['modules']['subscribe_status'];
+                        $_POST['options']['modules']['subscribe_status'] = (int)$_POST['options']['modules']['subscribe_status'];
                         $_POST['options']['modules']['subscribe_text'] = sanitize_text_field($_POST['options']['modules']['subscribe_text']);
                         if (!empty($_POST['options']['modules']['subscribe_text_color'])) {
                             $_POST['options']['modules']['subscribe_text_color'] = sanitize_text_field($_POST['options']['modules']['subscribe_text_color']);
@@ -370,8 +370,8 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
                         }
 
                         // SOCIAL NETWORKS
-                        $_POST['options']['modules']['social_status'] = (int) $_POST['options']['modules']['social_status'];
-                        $_POST['options']['modules']['social_target'] = (int) $_POST['options']['modules']['social_target'];
+                        $_POST['options']['modules']['social_status'] = (int)$_POST['options']['modules']['social_status'];
+                        $_POST['options']['modules']['social_target'] = (int)$_POST['options']['modules']['social_target'];
                         $_POST['options']['modules']['social_github'] = sanitize_text_field($_POST['options']['modules']['social_github']);
                         $_POST['options']['modules']['social_dribbble'] = sanitize_text_field($_POST['options']['modules']['social_dribbble']);
                         $_POST['options']['modules']['social_twitter'] = sanitize_text_field($_POST['options']['modules']['social_twitter']);
@@ -381,12 +381,12 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
                         $_POST['options']['modules']['social_linkedin'] = sanitize_text_field($_POST['options']['modules']['social_linkedin']);
 
                         // CONTACT
-                        $_POST['options']['modules']['contact_status'] = (int) $_POST['options']['modules']['contact_status'];
+                        $_POST['options']['modules']['contact_status'] = (int)$_POST['options']['modules']['contact_status'];
                         $_POST['options']['modules']['contact_email'] = sanitize_text_field($_POST['options']['modules']['contact_email']);
                         $_POST['options']['modules']['contact_effects'] = sanitize_text_field($_POST['options']['modules']['contact_effects']);
 
                         // GOOGLE ANALYTICS
-                        $_POST['options']['modules']['ga_status'] = (int) $_POST['options']['modules']['ga_status'];
+                        $_POST['options']['modules']['ga_status'] = (int)$_POST['options']['modules']['ga_status'];
                         $_POST['options']['modules']['ga_code'] = wpmm_sanitize_ga_code($_POST['options']['modules']['ga_code']);
 
                         $_POST['options']['modules']['custom_css'] = $custom_css;
@@ -399,7 +399,7 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
                     case 'bot':
                         $custom_css = array();
 
-                        $_POST['options']['bot']['status'] = (int) $_POST['options']['bot']['status'];
+                        $_POST['options']['bot']['status'] = (int)$_POST['options']['bot']['status'];
 
                         $_POST['options']['bot']['name'] = sanitize_text_field($_POST['options']['bot']['name']);
 
@@ -438,7 +438,7 @@ if (!class_exists('WP_Maintenance_Mode_Admin')) {
                     case 'gdpr':
                         //$custom_css = array();
 
-                        $_POST['options']['gdpr']['status'] = (int) $_POST['options']['gdpr']['status'];
+                        $_POST['options']['gdpr']['status'] = (int)$_POST['options']['gdpr']['status'];
                         $_POST['options']['gdpr']['policy_page_label'] = sanitize_text_field($_POST['options']['gdpr']['policy_page_label']);
                         $_POST['options']['gdpr']['policy_page_link'] = sanitize_text_field($_POST['options']['gdpr']['policy_page_link']);
                         $_POST['options']['gdpr']['contact_form_tail'] = sanitize_text_field($_POST['options']['gdpr']['contact_form_tail']);

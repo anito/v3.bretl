@@ -51,6 +51,7 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 300;
+  color: #fff;
   /*background-image: url(images/bg.jpg) !important;*/
   /*background-repeat: no-repeat;*/
   background-size: cover;
@@ -72,15 +73,19 @@ body:after {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   z-index: -1;
 }
-h1,
-h2 {
-  margin: 16px 0;
+.wrap h1 {
+  margin: 0 0 90px;
+  font-size: 1.4em;
+  font-weight: 300;
 }
-h1 {
-  font-size: 24px;
+.wrap h2 {
+  margin: 0 0 80px;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.6em;
 }
 .container {
   display: -webkit-box;
@@ -96,7 +101,6 @@ h1 {
 }
 .header {
   margin: auto 0 16px;
-  text-align: center;
 }
 .timer {
   display: -webkit-box;
@@ -158,6 +162,7 @@ h1 {
 .footer a:visited,
 .footer a:active,
 .footer a:hover {
+  color: #fff;
   text-decoration: none;
 }
 .footer__bg_copyright {
@@ -180,12 +185,6 @@ h1 {
 }
 .hide {
   display: none;
-}
-.contact_us {
-  display: inline-block;
-  position: relative;
-  bottom: 60px;
-  color: #c5c5c5 !important;
 }
 @media (min-width: 500px) {
   .timer {
