@@ -230,11 +230,11 @@ function detectTrident($current_theme)
     $ua = $_SERVER['HTTP_USER_AGENT'];
     $browser = ['name' => '', 'version' => '', 'platform' => ''];
     if (preg_match('/Trident\/([0-9.]*)/u', $ua, $match)) {
-        $match = (int) array_pop($match) + 4;
+        $match = (int)array_pop($match) + 4;
         // write_log( "Trident:" );
         // write_log( $match );
-    } else if (preg_match('/MSIE\s{1}([0-9.]*)/u', $ua, $match)) {
-        $match = (int) array_pop($match);
+    } elseif (preg_match('/MSIE\s{1}([0-9.]*)/u', $ua, $match)) {
+        $match = (int)array_pop($match);
         // write_log( "MSIE:" );
         // write_log( $match );
     }
@@ -253,3 +253,4 @@ function unsupported_browsers_template()
     get_template_part('custom-templates/custom', 'unsupported-browser');
 }
 add_action('wp_enqueue_scripts', 'detectTrident');
+//
