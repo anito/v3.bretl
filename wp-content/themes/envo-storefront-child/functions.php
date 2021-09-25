@@ -253,4 +253,4 @@ function unsupported_browsers_template()
     get_template_part('custom-templates/custom', 'unsupported-browser');
 }
 add_action('wp_enqueue_scripts', 'detectTrident');
-//
+//1.0.0
